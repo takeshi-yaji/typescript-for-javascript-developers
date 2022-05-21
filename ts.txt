@@ -1,0 +1,63 @@
+導入手順
+① Node.jsインストール
+$ which node #node.jsのパス
+$ node -v
+$ npm -v
+
+② package.jsonの作成(パッケージ管理のファイル)
+$ npm init -y  #package.json作成
+
+
+③ TypeScriptのインストール
+$ npm info typescript #tsのver確認
+$ npm install --save-dev typescript@4.6.3 #tsのインストール
+
+
+④ ts-nodeのインストール
+#ts-nodeとは
+##コンパイルから実行までを行ってくれるパッケージ
+$ npm info ts-node #ts-nodeのver確認
+$ npm install --save-dev ts-node@10.7.0 #ts-nodeのインストール
+$ npm ts-node src/install-typescript.ts #ファイルの実行
+
+
+⑤ts-node-devのインストール
+#ts-node-dev
+##コンパイルから実行までを行ってくれてかつwatch(監視)してくれる
+$ npm info ts-node-dev #ts-node-devのver確認
+$ npm install --save-dev ts-node-dev@1.1.8 #ts-node-devのインストール
+$ npx ts-node-dev --respawn src/install-typescript.ts #ファイルの実行
+
+
+⑥タスクの登録
+##package.json内のscript内にdevコマンドを登録
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "dev":"ts-node-dev --respawn" ← これを登録
+},
+↓ コマンド ↓
+$ npm run dev src/install-typescript.ts #登録したタスクを実行 (タスクを実行するときは「npm run」が必要になる)
+
+
+# モジュール化したファイルの作成
+echo 'export {};' > src/boolean.ts
+
+# axiosのインストール
+$ npm info axios  #axiosのver確認
+$ npm install axios@0.27.2  #axiosインストール
+$ npm run dev 実行ファイルのパス  #ファイルの実行
+
+
+===============================================
+
+###オブジェクトに対してアノテーションを設定する方法
+
+#型エイリアス(Type Aliases)、オブジェクトに対してアノテーションを設定する
+別名を持たせるという意味
+
+#interface
+型エイリアスとは別でオブジェクトに対してアノテーションを設定できる
+
+===============================================
+
+###型安全とは
